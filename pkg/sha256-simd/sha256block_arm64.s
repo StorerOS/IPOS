@@ -1,0 +1,166 @@
+//+build !noasm,!appengine
+
+TEXT ·blockArm(SB), 7, $0
+	MOVD h+0(FP), R0
+	MOVD message+24(FP), R1
+	MOVD message_len+32(FP), R2
+	SUBS $64, R2
+	BMI  complete
+
+
+	MOVD $·constants(SB), R3
+
+
+	WORD $0x4cdf2870
+	WORD $0x4cdf7800
+	WORD $0x4cdf2874
+
+	WORD $0x4c407801
+	WORD $0x4cdf2878
+	WORD $0xd1004000
+	WORD $0x4cdf287c
+
+loop:
+
+	WORD $0x4cdf2025
+	WORD $0x4ea01c02
+	WORD $0x4ea11c23
+	WORD $0x6e2008a5
+	WORD $0x6e2008c6
+	WORD $0x4eb084a9
+	WORD $0x6e2008e7
+	WORD $0x4eb184ca
+	WORD $0x4ea21c44
+	WORD $0x5e094062
+	WORD $0x5e095083
+	WORD $0x5e2828c5
+	WORD $0x6e200908
+	WORD $0x4eb284e9
+	WORD $0x4ea21c44
+	WORD $0x5e0a4062
+	WORD $0x5e0a5083
+	WORD $0x5e2828e6
+	WORD $0x5e0860e5
+	WORD $0x4eb3850a
+	WORD $0x4ea21c44
+	WORD $0x5e094062
+	WORD $0x5e095083
+	WORD $0x5e282907
+	WORD $0x5e056106
+	WORD $0x4eb484a9
+	WORD $0x4ea21c44
+	WORD $0x5e0a4062
+	WORD $0x5e0a5083
+	WORD $0x5e2828a8
+	WORD $0x5e0660a7
+	WORD $0x4eb584ca
+	WORD $0x4ea21c44
+	WORD $0x5e094062
+	WORD $0x5e095083
+	WORD $0x5e2828c5
+	WORD $0x5e0760c8
+	WORD $0x4eb684e9
+	WORD $0x4ea21c44
+	WORD $0x5e0a4062
+	WORD $0x5e0a5083
+	WORD $0x5e2828e6
+	WORD $0x5e0860e5
+	WORD $0x4eb7850a
+	WORD $0x4ea21c44
+	WORD $0x5e094062
+	WORD $0x5e095083
+	WORD $0x5e282907
+	WORD $0x5e056106
+	WORD $0x4eb884a9
+	WORD $0x4ea21c44
+	WORD $0x5e0a4062
+	WORD $0x5e0a5083
+	WORD $0x5e2828a8
+	WORD $0x5e0660a7
+	WORD $0x4eb984ca
+	WORD $0x4ea21c44
+	WORD $0x5e094062
+	WORD $0x5e095083
+	WORD $0x5e2828c5
+	WORD $0x5e0760c8
+	WORD $0x4eba84e9
+	WORD $0x4ea21c44
+	WORD $0x5e0a4062
+	WORD $0x5e0a5083
+	WORD $0x5e2828e6
+	WORD $0x5e0860e5
+	WORD $0x4ebb850a
+	WORD $0x4ea21c44
+	WORD $0x5e094062
+	WORD $0x5e095083
+	WORD $0x5e282907
+	WORD $0x5e056106
+	WORD $0x4ebc84a9
+	WORD $0x4ea21c44
+	WORD $0x5e0a4062
+	WORD $0x5e0a5083
+	WORD $0x5e2828a8
+	WORD $0x5e0660a7
+	WORD $0x4ebd84ca
+	WORD $0x4ea21c44
+	WORD $0x5e094062
+	WORD $0x5e095083
+	WORD $0x5e0760c8
+	WORD $0x4ebe84e9
+	WORD $0x4ea21c44
+	WORD $0x5e0a4062
+	WORD $0x5e0a5083
+	WORD $0x4ebf850a
+	WORD $0x4ea21c44
+	WORD $0x5e094062
+	WORD $0x5e095083
+	WORD $0x4ea21c44
+	WORD $0x5e0a4062
+	WORD $0x5e0a5083
+	WORD $0x4ea38421
+	WORD $0x4ea28400
+
+	SUBS $64, R2
+	BPL  loop
+
+
+	WORD $0x4c00a800
+
+complete:
+	RET
+
+DATA ·constants+0x0(SB)/8, $0x71374491428a2f98
+DATA ·constants+0x8(SB)/8, $0xe9b5dba5b5c0fbcf
+DATA ·constants+0x10(SB)/8, $0x59f111f13956c25b
+DATA ·constants+0x18(SB)/8, $0xab1c5ed5923f82a4
+DATA ·constants+0x20(SB)/8, $0x12835b01d807aa98
+DATA ·constants+0x28(SB)/8, $0x550c7dc3243185be
+DATA ·constants+0x30(SB)/8, $0x80deb1fe72be5d74
+DATA ·constants+0x38(SB)/8, $0xc19bf1749bdc06a7
+DATA ·constants+0x40(SB)/8, $0xefbe4786e49b69c1
+DATA ·constants+0x48(SB)/8, $0x240ca1cc0fc19dc6
+DATA ·constants+0x50(SB)/8, $0x4a7484aa2de92c6f
+DATA ·constants+0x58(SB)/8, $0x76f988da5cb0a9dc
+DATA ·constants+0x60(SB)/8, $0xa831c66d983e5152
+DATA ·constants+0x68(SB)/8, $0xbf597fc7b00327c8
+DATA ·constants+0x70(SB)/8, $0xd5a79147c6e00bf3
+DATA ·constants+0x78(SB)/8, $0x1429296706ca6351
+DATA ·constants+0x80(SB)/8, $0x2e1b213827b70a85
+DATA ·constants+0x88(SB)/8, $0x53380d134d2c6dfc
+DATA ·constants+0x90(SB)/8, $0x766a0abb650a7354
+DATA ·constants+0x98(SB)/8, $0x92722c8581c2c92e
+DATA ·constants+0xa0(SB)/8, $0xa81a664ba2bfe8a1
+DATA ·constants+0xa8(SB)/8, $0xc76c51a3c24b8b70
+DATA ·constants+0xb0(SB)/8, $0xd6990624d192e819
+DATA ·constants+0xb8(SB)/8, $0x106aa070f40e3585
+DATA ·constants+0xc0(SB)/8, $0x1e376c0819a4c116
+DATA ·constants+0xc8(SB)/8, $0x34b0bcb52748774c
+DATA ·constants+0xd0(SB)/8, $0x4ed8aa4a391c0cb3
+DATA ·constants+0xd8(SB)/8, $0x682e6ff35b9cca4f
+DATA ·constants+0xe0(SB)/8, $0x78a5636f748f82ee
+DATA ·constants+0xe8(SB)/8, $0x8cc7020884c87814
+DATA ·constants+0xf0(SB)/8, $0xa4506ceb90befffa
+DATA ·constants+0xf8(SB)/8, $0xc67178f2bef9a3f7
+
+GLOBL ·constants(SB), 8, $256
+

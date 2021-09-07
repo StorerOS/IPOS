@@ -1,0 +1,12 @@
+#!/bin/sh
+set -e
+
+if [ "${1}" != "ipos" ]; then
+    if [ -n "${1}" ]; then
+        set -- ipos "$@"
+    fi
+fi
+
+ipos --version
+
+exec "$@"
