@@ -4,7 +4,7 @@ IPOS is an open source decentralized storage protocol that provides [AWS S3](htt
 
 ## Get Start
 
-### Open [IPOS Website](http://14.215.91.114:8082/ipos/)
+### Open [IPOS Website](https://ipos.storeros.com/)
 
 ![image](https://user-images.githubusercontent.com/90947287/134447556-b1565a91-1417-410f-a593-48846f47f1bc.png)
 
