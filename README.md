@@ -2,6 +2,13 @@
 
 IPOS is an open source decentralized storage protocol that provides [AWS S3](https://aws.amazon.com/cn/s3/) native APIs for developers. IPOS will distribute data stored based on the AWS S3 standard in IPFS. It supports IPFS mainet and  private networks by the deployment of IPFS nodes. So as to meet the distributed storage needs of developers.
 
+## Milestone 1
+
+Store the data stored through IPOS on the IPFS mainnet.
+
+see https://www.aliyundrive.com/s/rVVfqn7g5Gf
+
+
 ## Get Start
 
 ### Open [IPOS Website](https://ipos.storeros.com/)
@@ -28,7 +35,8 @@ SecretKey: iposadmin
 
 ![image](https://user-images.githubusercontent.com/90947287/134448864-a6e8120f-a19a-40f9-907f-190b83ab8ebe.png)
 
-The file(image.png) is stored in IPFS which is the private network now. You can share,preview,delete it and so on.
+The file(image.png) is stored in IPFS mainnet
+
 
 
 ## Build
